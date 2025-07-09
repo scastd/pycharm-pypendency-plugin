@@ -34,7 +34,6 @@ public class CompletionContributor extends com.intellij.codeInsight.completion.C
         String text = element.getText()
                              .replace(INTELLIJ_DEFAULT_STRING, "")
                              .replaceAll("[\"']", "");
-
         String cleanIdentifier = text.replace("@", "");
         String projectName = parameters.getPosition().getProject().getName();
         List<String> completions = resolutionCache.fuzzyFindIdentifiersMatching(projectName, cleanIdentifier);
