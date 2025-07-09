@@ -62,9 +62,8 @@ public class SourceCodeFileResolverByFqn {
 
             possibleFilePaths.add("%s/%s.%s".formatted(sourceCodeRootAbsolutePath, relativeFilePath, extension));
             possibleFilePaths.add(
-                    "%s/%s/%s.%s".formatted(sourceCodeRootAbsolutePath, relativeFilePath,
-                                            CaseFormatter.camelCaseToSnakeCase(
-                                                    className), extension));
+                "%s/%s/%s.%s".formatted(sourceCodeRootAbsolutePath, relativeFilePath,
+                                        CaseFormatter.camelCaseToSnakeCase(className), extension));
         }
 
         return possibleFilePaths;

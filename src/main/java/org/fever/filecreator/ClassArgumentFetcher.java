@@ -91,7 +91,7 @@ public class ClassArgumentFetcher {
         }
 
         List<PyParameter> dunderInitMethodParameters = new ArrayList<>(
-                Arrays.asList(initMethod.getParameterList().getParameters())
+            Arrays.asList(initMethod.getParameterList().getParameters())
         );
         dunderInitMethodParameters.remove(SELF_INDEX_IN_PARAMETER_LIST);
 

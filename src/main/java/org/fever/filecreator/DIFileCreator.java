@@ -26,9 +26,9 @@ public class DIFileCreator {
                                          .replace("{arguments}", getArguments(targetPyClass, fileTemplate));
 
         return PsiFileFactory.getInstance(sourceCodeFile.getProject()).createFileFromText(
-                sourceCodeFile.getName().replace(".py", fileTemplate.getFileExtension()),
-                fileTemplate.getFileType(),
-                fileContent
+            sourceCodeFile.getName().replace(".py", fileTemplate.getFileExtension()),
+            fileTemplate.getFileType(),
+            fileContent
         );
     }
 
@@ -55,7 +55,7 @@ public class DIFileCreator {
             if (numberOfImplementationsForParameter(initArgumentsForParameter) > 1) {
                 appendWithIndentation(builder, numberOfSpaces,
                                       fileTemplate.getMultipleArgumentsTemplateBeginning().formatted(
-                                              parameter.getName()));
+                                          parameter.getName()));
             }
             for (IdentifierItem initArgument : initArgumentsForParameter) {
                 if (initArgument.isNotAClass() || (initArgument.hasNoImplementations() && initArgumentsForParameter.size() == 1)) {
@@ -90,9 +90,9 @@ public class DIFileCreator {
     private static OrderedHashMap<PyParameter, List<IdentifierItem>> groupIdentifiersByParameter(Collection<IdentifierItem> identifiers) {
         return identifiers.stream()
                           .collect(Collectors.groupingBy(
-                                  IdentifierItem::getParameter,
-                                  OrderedHashMap::new,
-                                  Collectors.toList()
+                              IdentifierItem::getParameter,
+                              OrderedHashMap::new,
+                              Collectors.toList()
                           ));
     }
 

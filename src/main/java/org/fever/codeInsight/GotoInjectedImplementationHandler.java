@@ -110,7 +110,7 @@ public class GotoInjectedImplementationHandler extends GotoTargetHandler {
 
         int targetClassIndexInInit = Arrays.stream(initMethodParameters)
                                            .filter(parameter -> targetClass.equals(
-                                                   ClassArgumentParser.parse(parameter.getText())))
+                                               ClassArgumentParser.parse(parameter.getText())))
                                            .findFirst()
                                            .map(Arrays.asList(initMethodParameters)::indexOf)
                                            .map(index -> index - 1)
@@ -143,7 +143,7 @@ public class GotoInjectedImplementationHandler extends GotoTargetHandler {
         int numberOfArgumentsInInitMethod = initMethodParameters.length - 1;
         if (numberOfArgumentsInInitMethod != argumentsInDIFile.length) {
             String message = "Could not find the injected implementation for \"%s\".\nThe __init__ method has %d arguments, but the DI file has %d injected arguments.".formatted(
-                    targetClass, numberOfArgumentsInInitMethod, argumentsInDIFile.length);
+                targetClass, numberOfArgumentsInInitMethod, argumentsInDIFile.length);
             PypendencyNotifier.notify(dependencyInjectionFile.getProject(), message, NotificationType.ERROR);
             return null;
         }
